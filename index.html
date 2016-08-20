@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Wordapp | Monetize your language assets</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
@@ -13,11 +14,16 @@
 </head>
 <body>
 
-  <div class="nav-bar">
+  <div class="nav-bar animated slideInDown">
     <div class="container">
   		<div class="row">
         <div class="logo">
           <img src="assets/img/wa_logo_2_beta_black.svg" alt="">
+        </div>
+        <div class="navigation-buttons">
+          <a class="green bold" href="">Need of help?</a>
+          <a href="">Select language &nbsp<i class="fa fa-sort-desc" aria-hidden="true"></i></a>
+          <a class="btn btn-rounded btn-sm" href="">Sign out</a>
         </div>
   		</div>
   	</div>
@@ -42,7 +48,14 @@
 
         <div class="info">
           <h3><span class="tasks-left">27</span> tasks</h3>
-          <p>left to become an editor</p>
+          <p class="green">left to become an editor</p>
+          <h3><span class="points">3</span> points</h3>
+          <p class="gray">from task approvals</p>
+        </div>
+        <hr />
+
+        <div class="live-chat">
+          <span class="oi" data-glyph="envelope-closed"></span class="live-chat-text"><span>Send a message</span>
         </div>
 
       </div>
@@ -247,7 +260,7 @@
 
           <div class="circle gray"></div>
 
-          <h4 class="header">Task Details</h4>
+          <h4 class="header"><span class="oi" data-glyph="tag"></span> Task Details</h4>
           <h5 class="header-small">Project name</h5>
           <p>Lekmer.se 300 w + meta kategoritexter</p>
           <h5 class="header-small">Type</h5>
@@ -258,14 +271,14 @@
           <p>6.21 SEK</p>
           <hr />
 
-          <h4 class="header">Keywords</h4>
+          <h4 class="header"><span class="oi" data-glyph="key"></span> Keywords</h4>
           <h5 class="header-small">Main keywords</h5>
           <p>Babyskydd</p>
           <h5 class="header-small">Sub keywords</h5>
           <p>Lekmer.se,,,,Babyskydd 0 kg - 13 kg,bilbarnstol,Maxi-Cosi babyskydd,babyskydd till bil,Besafe babyskydd,med handtag,Maxi-Cosi i Sverige</p>
           <hr />
 
-          <h4 class="header">Persona</h4>
+          <h4 class="header"><span class="oi" data-glyph="dial"></span> Persona</h4>
           <p>blivande föräldrar (vissa varumärken/produktgrupper) och föräldrar till barn upp till 8 år. Kvinnor 25-45 är huvudmålgruppen</p>
 
           <a class="green" href="#"><span class="oi" data-glyph="external-link"></span> Page URL </a>
@@ -276,8 +289,10 @@
         </div>
       </div>
 
-
     </div>
+
+
+
   </div>
 </body>
 </html>
