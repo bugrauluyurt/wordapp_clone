@@ -12,18 +12,27 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
 	<link rel="stylesheet" href="assets/css/wordapp.css">
 </head>
-<body>
+<body ng-cloak ng-app="wordapp">
 
-  <div class="nav-bar animated slideInDown">
+  <div class="nav-bar animated slideInDown" ng-controller="NavCtrl">
     <div class="container">
   		<div class="row">
         <div class="logo">
           <img src="assets/img/wa_logo_2_beta_black.svg" alt="">
         </div>
         <div class="navigation-buttons">
-          <a class="green bold" href="">Need of help?</a>
-          <a href="">Select language &nbsp<i class="fa fa-sort-desc" aria-hidden="true"></i></a>
-          <a class="btn btn-rounded btn-sm" href="">Sign out</a>
+          <button class="green bold" href="">Need of help?</button>
+          <span uib-dropdown on-toggle="" dropdown-append-to-body="true">
+            <a href id="language-dropdown" uib-dropdown-toggle class="dropdown-button">
+              Select language &nbsp<i class="fa fa-sort-desc" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu arrow_box animated fadeIn" uib-dropdown-menu aria-labelledby="language-dropdown">
+              <li ng-repeat="language in languages">
+                <a href>{{language}}</a>
+              </li>
+            </ul>
+          </span>
+          <button class="btn btn-rounded btn-sm" href="">Sign out</button>
         </div>
   		</div>
   	</div>
@@ -62,8 +71,8 @@
       <div class="col-md-5">
 
         <div class="form-group form-group-default search-bar animated fadeInDown">
-          <label class="header-label">Tasks Feed</label>
-          <span class="oi" data-glyph="magnifying-glass"></span>
+          <label class="header-label"><span class="oi layers" data-glyph="layers"></span> Tasks Feed</label>
+          <span class="oi magnifying-glass" data-glyph="magnifying-glass"></span>
           <input class="form-control" type="text" placeholder="search for open tasks">
         </div>
 
@@ -294,5 +303,9 @@
 
 
   </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.1.1/ui-bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/js/app.js"></script>
 </body>
 </html>
