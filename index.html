@@ -14,7 +14,7 @@
 </head>
 <body ng-cloak ng-app="wordapp">
 
-  <div class="nav-bar animated slideInDown" ng-controller="NavCtrl">
+  <div class="nav-bar animated slideInDown" ng-controller="NavCtrl as navCtrl">
     <div class="container">
   		<div class="row">
         <div class="logo">
@@ -26,8 +26,8 @@
             <a href id="language-dropdown" uib-dropdown-toggle class="dropdown-button">
               Select language &nbsp<i class="fa fa-sort-desc" aria-hidden="true"></i>
             </a>
-            <ul class="dropdown-menu arrow_box animated fadeIn" uib-dropdown-menu aria-labelledby="language-dropdown">
-              <li ng-repeat="language in languages">
+            <ul class="dropdown-menu arrow_box" uib-dropdown-menu aria-labelledby="language-dropdown">
+              <li ng-repeat="language in navCtrl.languages">
                 <a href>{{language}}</a>
               </li>
             </ul>
@@ -42,7 +42,8 @@
     <div class="row">
 
       <!-- Profile Sneakpeak -->
-      <div class="col-md-2 profile-main animated fadeIn">
+      <div class="col-md-2 profile-main animated fadeIn" ng-controller="profileHudCtrl as profileHudCtrl">
+
         <div class="profile-pic" style="background-image:url('assets/img/profile_pic.jpg')"></div>
         <h3>Buğra Uluyurt</h3>
         <p><span class="oi" data-glyph="star"></span> Verified Writer</p>
@@ -56,6 +57,7 @@
         <hr />
 
         <div class="info">
+
           <h3><span class="tasks-left">27</span> tasks</h3>
           <p class="green">left to become an editor</p>
           <h3><span class="points">3</span> points</h3>
@@ -64,240 +66,76 @@
         <hr />
 
         <div class="live-chat">
-          <span class="oi" data-glyph="envelope-closed"></span class="live-chat-text"><span>Send a message</span>
-        </div>
-
-      </div>
-      <div class="col-md-5">
-
-        <div class="form-group form-group-default search-bar animated fadeInDown">
-          <label class="header-label"><span class="oi layers" data-glyph="layers"></span> Tasks Feed</label>
-          <span class="oi magnifying-glass" data-glyph="magnifying-glass"></span>
-          <input class="form-control" type="text" placeholder="search for open tasks">
-        </div>
-
-        <div class="task-feed">
-
-          <div class="task-card animated fadeInDown">
-            <div class="task-card-header">
-              <h4>Ledning / Chef</h4>
-              <p class="cost"><span class="price">55.50</span> <span class="currency">SEK</span></p>
-            </div>
-            <div class="task-card-description">
-              <p>Netjobs.com texter om yrken.</p>
-              <div class="classification-wrapper">
-                <span class="oi" data-glyph="badge" title="badge" aria-hidden="true"></span>
-                <span class="classification">EDITOR</span>
-                <span class="classification-publicity">PUBLIC</span>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="task-card active animated fadeInDown">
-            <div class="task-card-header">
-              <h4>Media / Design</h4>
-              <p class="cost"><span class="price">61.20</span> <span class="currency">SEK</span></p>
-            </div>
-            <div class="task-card-description">
-              <p>Nelly varumärken SE</p>
-              <div class="classification-wrapper">
-                <span class="oi" data-glyph="pencil" title="pencil" aria-hidden="true"></span>
-                <span class="classification">WRITER</span>
-                <span class="classification-publicity"><span class="oi" data-glyph="eye"></span> PRIVATE</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="task-card animated fadeInDown">
-            <div class="task-card-header">
-              <h4>Toten Rackskåp 4U med Glasdörr</h4>
-              <p class="cost"><span class="price">5.50</span> <span class="currency">EUR</span></p>
-            </div>
-            <div class="task-card-description">
-              <p>Dustin- 75 ords säljande ingress (enkelt)</p>
-              <div class="classification-wrapper">
-                <span class="oi" data-glyph="pencil" title="pencil" aria-hidden="true"></span>
-                <span class="classification">WRITER</span>
-                <span class="classification-publicity">PUBLIC</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="task-card animated fadeInDown">
-            <div class="task-card-header">
-              <h4>Leklera</h4>
-              <p class="cost"><span class="price">2.50</span> <span class="currency">EUR</span></p>
-            </div>
-            <div class="task-card-description">
-              <p>Lekmer.se 300 w + meta kategoritexter</p>
-              <div class="classification-wrapper">
-                <span class="oi" data-glyph="pencil" title="pencil" aria-hidden="true"></span>
-                <span class="classification">WRITER</span>
-                <span class="classification-publicity"><span class="oi" data-glyph="eye"></span> PRIVATE</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="task-card animated fadeInDown">
-            <div class="task-card-header">
-              <h4>Media / Design</h4>
-              <p class="cost"><span class="price">61.20</span> <span class="currency">SEK</span></p>
-            </div>
-            <div class="task-card-description">
-              <p>Nelly varumärken SE</p>
-              <div class="classification-wrapper">
-                <span class="oi" data-glyph="pencil" title="pencil" aria-hidden="true"></span>
-                <span class="classification">WRITER</span>
-                <span class="classification-publicity">PUBLIC</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="task-card animated fadeInDown">
-            <div class="task-card-header">
-              <h4>Toten Rackskåp 4U med Glasdörr</h4>
-              <p class="cost"><span class="price">5.50</span> <span class="currency">EUR</span></p>
-            </div>
-            <div class="task-card-description">
-              <p>Dustin- 75 ords säljande ingress (enkelt)</p>
-              <div class="classification-wrapper">
-                <span class="oi" data-glyph="pencil" title="pencil" aria-hidden="true"></span>
-                <span class="classification">WRITER</span>
-                <span class="classification-publicity">PRIVATE</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="task-card animated fadeInDown">
-            <div class="task-card-header">
-              <h4>Ledning / Chef</h4>
-              <p class="cost"><span class="price">55.50</span> <span class="currency">SEK</span></p>
-            </div>
-            <div class="task-card-description">
-              <p>Netjobs.com texter om yrken.</p>
-              <div class="classification-wrapper">
-                <span class="oi" data-glyph="badge" title="badge" aria-hidden="true"></span>
-                <span class="classification">EDITOR</span>
-                <span class="classification-publicity">PUBLIC</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="task-card animated fadeInDown">
-            <div class="task-card-header">
-              <h4>Media / Design</h4>
-              <p class="cost"><span class="price">61.20</span> <span class="currency">SEK</span></p>
-            </div>
-            <div class="task-card-description">
-              <p>Nelly varumärken SE</p>
-              <div class="classification-wrapper">
-                <span class="oi" data-glyph="pencil" title="pencil" aria-hidden="true"></span>
-                <span class="classification">WRITER</span>
-                <span class="classification-publicity">PUBLIC</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="task-card animated fadeInDown">
-            <div class="task-card-header">
-              <h4>Toten Rackskåp 4U med Glasdörr</h4>
-              <p class="cost"><span class="price">5.50</span> <span class="currency">EUR</span></p>
-            </div>
-            <div class="task-card-description">
-              <p>Dustin- 75 ords säljande ingress (enkelt)</p>
-              <div class="classification-wrapper">
-                <span class="oi" data-glyph="pencil" title="pencil" aria-hidden="true"></span>
-                <span class="classification">WRITER</span>
-                <span class="classification-publicity">PUBLIC</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="task-card animated fadeInDown">
-            <div class="task-card-header">
-              <h4>Leklera</h4>
-              <p class="cost"><span class="price">2.50</span> <span class="currency">EUR</span></p>
-            </div>
-            <div class="task-card-description">
-              <p>Lekmer.se 300 w + meta kategoritexter</p>
-              <div class="classification-wrapper">
-                <span class="oi" data-glyph="pencil" title="pencil" aria-hidden="true"></span>
-                <span class="classification">WRITER</span>
-                <span class="classification-publicity">PUBLIC</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="task-card animated fadeInDown">
-            <div class="task-card-header">
-              <h4>Media / Design</h4>
-              <p class="cost"><span class="price">61.20</span> <span class="currency">SEK</span></p>
-            </div>
-            <div class="task-card-description">
-              <p>Nelly varumärken SE</p>
-              <div class="classification-wrapper">
-                <span class="oi" data-glyph="pencil" title="pencil" aria-hidden="true"></span>
-                <span class="classification">WRITER</span>
-                <span class="classification-publicity">PUBLIC</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="task-card animated fadeInDown">
-            <div class="task-card-header">
-              <h4>Toten Rackskåp 4U med Glasdörr</h4>
-              <p class="cost"><span class="price">5.50</span> <span class="currency">EUR</span></p>
-            </div>
-            <div class="task-card-description">
-              <p>Dustin- 75 ords säljande ingress (enkelt)</p>
-              <div class="classification-wrapper">
-                <span class="oi" data-glyph="pencil" title="pencil" aria-hidden="true"></span>
-                <span class="classification">WRITER</span>
-                <span class="classification-publicity">PUBLIC</span>
-              </div>
-            </div>
-          </div>
-
+          <span class="oi" data-glyph="envelope-closed"></span>
+          <span class="live-chat-text">Send a message</span>
         </div>
 
       </div>
 
-      <div class="col-md-5 task-card-detail animated fadeInRight">
+      <div ng-controller="tasksFeedCtrl as tasksFeedCtrl">
 
-        <div class="task-card-detail-body">
+        <div class="col-md-5" id="tasksSelect">
 
-          <div class="circle gray"></div>
+          <div class="form-group form-group-default search-bar animated fadeInDown">
+            <label class="header-label"><span class="oi layers" data-glyph="layers"></span> Tasks Feed</label>
+            <span class="oi magnifying-glass" data-glyph="magnifying-glass"></span>
+            <input class="form-control" type="text" placeholder="search for open tasks" ng-model="searchText">
+          </div>
 
-          <h4 class="header"><span class="oi" data-glyph="tag"></span> Task Details</h4>
-          <h5 class="header-small">Project name</h5>
-          <p>Lekmer.se 300 w + meta kategoritexter</p>
-          <h5 class="header-small">Type</h5>
-          <p>Lekmer.se 300 w + meta kategoritexter</p>
-          <h5 class="header-small">Role</h5>
-          <p>Writer</p>
-          <h5 class="header-small">Payment</h5>
-          <p>6.21 SEK</p>
-          <hr />
-
-          <h4 class="header"><span class="oi" data-glyph="key"></span> Keywords</h4>
-          <h5 class="header-small">Main keywords</h5>
-          <p>Babyskydd</p>
-          <h5 class="header-small">Sub keywords</h5>
-          <p>Lekmer.se,,,,Babyskydd 0 kg - 13 kg,bilbarnstol,Maxi-Cosi babyskydd,babyskydd till bil,Besafe babyskydd,med handtag,Maxi-Cosi i Sverige</p>
-          <hr />
-
-          <h4 class="header"><span class="oi" data-glyph="dial"></span> Persona</h4>
-          <p>blivande föräldrar (vissa varumärken/produktgrupper) och föräldrar till barn upp till 8 år. Kvinnor 25-45 är huvudmålgruppen</p>
-
-          <a class="green" href="#"><span class="oi" data-glyph="external-link"></span> Page URL </a>
-          <a class="green" href="#"><span class="oi" data-glyph="external-link"></span> Sample text </a>
-
-          <button class="btn btn-lg btn-rounded blue">Take the task!</button>
+          <div class="task-feed">
+            <div ng-repeat="task in tasksFeedCtrl.tasks | filter: searchText" class="task-card animated fadeInDown" ng-click="tasksFeedCtrl.select($index); tasksFeedCtrl.fetchTask()" ng-class="{'active': $index == tasksFeedCtrl.selectedId}">
+              <div class="task-card-header">
+                <h4>{{::task.keywords.main}}</h4>
+                <p class="cost"><span class="price">{{::task.payment}}</span> <span class="currency">{{::task.currency}}</span></p>
+              </div>
+              <div class="task-card-description">
+                <p>{{::task.projectname}}</p>
+                <div class="classification-wrapper">
+                  <span class="oi" data-glyph="pencil" title="pencil" aria-hidden="true"></span>
+                  <span class="classification">{{::task.role}}</span>
+                  <span class="classification-publicity">{{::task.publicity}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </div>
-      </div>
 
+        <div class="col-md-5 task-card-detail animated fadeInRight" id="taskDetails">
+
+          <div class="task-card-detail-body">
+
+            <div class="circle gray"></div>
+
+            <h4 class="header"><span class="oi" data-glyph="tag"></span> Task Details</h4>
+            <h5 class="header-small">Project Name</h5>
+            <p>{{tasksFeedCtrl.selectedTask.projectname}}</p>
+            <h5 class="header-small">Type</h5>
+            <p>{{tasksFeedCtrl.selectedTask.type}}</p>
+            <h5 class="header-small">Role</h5>
+            <p>{{tasksFeedCtrl.selectedTask.role}}</p>
+            <h5 class="header-small">Payment</h5>
+            <p>{{tasksFeedCtrl.selectedTask.payment}} {{tasksFeedCtrl.selectedTask.currency}}</p>
+            <hr />
+
+            <h4 class="header"><span class="oi" data-glyph="key"></span> Keywords</h4>
+            <h5 class="header-small">Main keywords</h5>
+            <p>{{tasksFeedCtrl.selectedTask.keywords.main}}</p>
+            <h5 class="header-small">Sub keywords</h5>
+            <p>{{tasksFeedCtrl.selectedTask.keywords.sub}}</p>
+            <hr />
+
+            <h4 class="header"><span class="oi" data-glyph="dial"></span> Persona</h4>
+            <p>{{tasksFeedCtrl.selectedTask.persona}}</p>
+
+            <a class="green" href="#"><span class="oi" data-glyph="external-link"></span> Page URL </a>
+            <a class="green" href="#"><span class="oi" data-glyph="external-link"></span> Sample text </a>
+
+            <button class="btn btn-lg btn-rounded blue">Take the task!</button>
+
+          </div>
+        </div>
+      </div>
     </div>
 
 
@@ -306,6 +144,7 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.1.1/ui-bootstrap.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
   <script type="text/javascript" src="assets/js/app.js"></script>
 </body>
 </html>
