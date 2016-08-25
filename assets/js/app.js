@@ -134,9 +134,10 @@ angular.module('wordapp',['ui.bootstrap', 'ngAnimate'])
   })
 
 // CTRL - TasksFeedCtrl
-  .controller('tasksFeedCtrl', function tasksFeedCtrl(tasksFeed) {
+  .controller('tasksFeedCtrl', function tasksFeedCtrl(tasksFeed, $window) {
     var tasksFeedCtrl = this;
 
+    tasksFeedCtrl.winHeight = $window.innerHeight - 200;
     tasksFeedCtrl.tasks = tasksFeed.tasks;
     tasksFeedCtrl.selectedId = 0;
 
@@ -153,6 +154,8 @@ angular.module('wordapp',['ui.bootstrap', 'ngAnimate'])
     tasksFeedCtrl.select = function(index) {
       tasksFeedCtrl.selectedId = index;
     };
+
+
 
 
   })

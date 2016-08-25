@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
 	<link rel="stylesheet" href="assets/css/wordapp.css">
 </head>
-<body ng-cloak ng-app="wordapp">
+<body ng-cloak ng-app="wordapp" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
 
   <div class="nav-bar animated slideInDown" ng-controller="NavCtrl as navCtrl">
     <div class="container">
@@ -82,7 +82,7 @@
             <input class="form-control" type="text" placeholder="search for open tasks" ng-model="searchText">
           </div>
 
-          <div class="task-feed">
+          <div class="task-feed" ng-style="{'height': tasksFeedCtrl.winHeight + 'px'}">
             <div ng-repeat="task in tasksFeedCtrl.tasks | filter: searchText" class="task-card animated fadeInDown" ng-click="tasksFeedCtrl.select($index); tasksFeedCtrl.fetchTask()" ng-class="{'active': $index == tasksFeedCtrl.selectedId}">
               <div class="task-card-header">
                 <h4>{{::task.keywords.main}}</h4>
@@ -101,39 +101,47 @@
 
         </div>
 
-        <div class="col-md-5 task-card-detail animated fadeInRight" id="taskDetails">
+        <div class="col-md-5 animated fadeInRight">
 
-          <div class="task-card-detail-body">
+					<div class="fixed" ng-style="{'height': tasksFeedCtrl.winHeight + 'px'}">
 
-            <div class="circle gray"></div>
 
-            <h4 class="header"><span class="oi" data-glyph="tag"></span> Task Details</h4>
-            <h5 class="header-small">Project Name</h5>
-            <p>{{tasksFeedCtrl.selectedTask.projectname}}</p>
-            <h5 class="header-small">Type</h5>
-            <p>{{tasksFeedCtrl.selectedTask.type}}</p>
-            <h5 class="header-small">Role</h5>
-            <p>{{tasksFeedCtrl.selectedTask.role}}</p>
-            <h5 class="header-small">Payment</h5>
-            <p>{{tasksFeedCtrl.selectedTask.payment}} {{tasksFeedCtrl.selectedTask.currency}}</p>
-            <hr />
+						<div class="task-card-detail" id="taskDetails" >
 
-            <h4 class="header"><span class="oi" data-glyph="key"></span> Keywords</h4>
-            <h5 class="header-small">Main keywords</h5>
-            <p>{{tasksFeedCtrl.selectedTask.keywords.main}}</p>
-            <h5 class="header-small">Sub keywords</h5>
-            <p>{{tasksFeedCtrl.selectedTask.keywords.sub}}</p>
-            <hr />
+		          <div class="task-card-detail-body" ng-style="{'height': tasksFeedCtrl.winHeight + 'px'}">
 
-            <h4 class="header"><span class="oi" data-glyph="dial"></span> Persona</h4>
-            <p>{{tasksFeedCtrl.selectedTask.persona}}</p>
+		            <h4 class="header"><span class="oi" data-glyph="tag"></span> Task Details</h4>
+		            <h5 class="header-small">Project Name</h5>
+		            <p>{{tasksFeedCtrl.selectedTask.projectname}}</p>
+		            <h5 class="header-small">Type</h5>
+		            <p>{{tasksFeedCtrl.selectedTask.type}}</p>
+		            <h5 class="header-small">Role</h5>
+		            <p>{{tasksFeedCtrl.selectedTask.role}}</p>
+		            <h5 class="header-small">Payment</h5>
+		            <p>{{tasksFeedCtrl.selectedTask.payment}} {{tasksFeedCtrl.selectedTask.currency}}</p>
+		            <hr />
 
-            <a class="green" href="#"><span class="oi" data-glyph="external-link"></span> Page URL </a>
-            <a class="green" href="#"><span class="oi" data-glyph="external-link"></span> Sample text </a>
+		            <h4 class="header"><span class="oi" data-glyph="key"></span> Keywords</h4>
+		            <h5 class="header-small">Main keywords</h5>
+		            <p>{{tasksFeedCtrl.selectedTask.keywords.main}}</p>
+		            <h5 class="header-small">Sub keywords</h5>
+		            <p>{{tasksFeedCtrl.selectedTask.keywords.sub}}</p>
+		            <hr />
 
-            <button class="btn btn-lg btn-rounded blue">Take the task!</button>
+		            <h4 class="header"><span class="oi" data-glyph="dial"></span> Persona</h4>
+		            <p>{{tasksFeedCtrl.selectedTask.persona}}</p>
 
-          </div>
+		            <a class="green" href="#"><span class="oi" data-glyph="external-link"></span> Page URL </a>
+		            <a class="green" href="#"><span class="oi" data-glyph="external-link"></span> Sample text </a>
+
+		          </div>
+							<div class="circle gray"></div>
+						</div>
+						<div class="btn-submission">
+							<button class="btn btn-lg btn-rounded blue">Take the task!</button>
+						</div>
+					</div>
+
         </div>
       </div>
     </div>
