@@ -15,6 +15,14 @@ body {
   color:#9b9b9b !important;
 }
 
+.white {
+  color:#ffffff !important;
+}
+
+.bg-gray {
+  background-color:#9b9b9b !important;
+}
+
 .bold {
   font-weight: bold !important;
 }
@@ -49,6 +57,11 @@ h4.header
 h4.header
 {
   fonts-size:18px;
+}
+
+h4.header i
+{
+  margin-right:5px;
 }
 
 .header-small {
@@ -498,7 +511,74 @@ input.form-control:focus{
 }
 
 .btn-submission button {
-  width:100%;
+  width:49%;
+}
+
+.btn-submission button.disabled {
+  opacity:0.45;
+}
+
+.btn-submission button span {
+   border-radius: 50%;
+   width:26px;
+   height:26px;
+   border:1px solid #ffffff;
+   font-size:14px;
+   display:inline-block;
+   margin-left:-10px;
+   vertical-align: middle;
+}
+
+.btn-submission button#information {
+  position:relative;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  z-index:1001 !important;
+  opacity:1 !important;
+}
+
+.btn-submission button#information.disabled {
+  opacity:1 !important;
+  background-color:#cacaca !important;
+  z-index:1001 !important;
+}
+
+.btn-submission button#information:after
+{
+  content:'';
+  position:absolute;
+  right:-10px;
+  top:12px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #9b9b9b;
+  z-index:1000 !important;
+  opacity:1 !important;
+}
+
+.btn-submission button#information.disabled:after {
+  border-left: 10px solid #cacaca;
+  z-index:1000 !important;
+}
+
+.btn-submission button#task-submission {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  margin-left:-6px;
+  z-index:900;
+}
+
+.btn-back {
+  width:100px !important;
+  margin-top:-2px !important;
+  margin-bottom:10px;
+  font-weight:200 !important;
+}
+
+.btn-back, .btn-back span {
+
 }
 
 .fixed {

@@ -153,6 +153,12 @@ angular.module('wordapp',['ui.bootstrap', 'ngAnimate'])
 
     tasksFeedCtrl.select = function(index) {
       tasksFeedCtrl.selectedId = index;
+      tasksFeedCtrl.isVisible = true;
+    };
+
+    tasksFeedCtrl.isVisible = true;
+    tasksFeedCtrl.toggleVisibility = function(){
+      tasksFeedCtrl.isVisible = !tasksFeedCtrl.isVisible;
     };
 
 

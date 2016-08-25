@@ -92,7 +92,7 @@
                 <p>{{::task.projectname}}</p>
                 <div class="classification-wrapper">
                   <span class="oi" data-glyph="pencil" title="pencil" aria-hidden="true"></span>
-                  <span class="classification">{{::task.role}}</span>
+                  <span class="classification">{{::task.role === 'Writer' ? 'Writer' : 'not'}}</span>
                   <span class="classification-publicity">{{::task.publicity}}</span>
                 </div>
               </div>
@@ -109,36 +109,41 @@
 						<div class="task-card-detail" id="taskDetails" >
 
 		          <div class="task-card-detail-body" ng-style="{'height': tasksFeedCtrl.winHeight + 'px'}">
+								<div ng-show="tasksFeedCtrl.isVisible">
+			            <h4 class="header"><span class="oi" data-glyph="tag"></span> Task Details</h4>
+			            <h5 class="header-small">Project Name</h5>
+			            <p>{{tasksFeedCtrl.selectedTask.projectname}}</p>
+			            <h5 class="header-small">Type</h5>
+			            <p>{{tasksFeedCtrl.selectedTask.type}}</p>
+			            <h5 class="header-small">Role</h5>
+			            <p>{{tasksFeedCtrl.selectedTask.role}}</p>
+			            <h5 class="header-small">Payment</h5>
+			            <p>{{tasksFeedCtrl.selectedTask.payment}} {{tasksFeedCtrl.selectedTask.currency}}</p>
+			            <hr />
 
-		            <h4 class="header"><span class="oi" data-glyph="tag"></span> Task Details</h4>
-		            <h5 class="header-small">Project Name</h5>
-		            <p>{{tasksFeedCtrl.selectedTask.projectname}}</p>
-		            <h5 class="header-small">Type</h5>
-		            <p>{{tasksFeedCtrl.selectedTask.type}}</p>
-		            <h5 class="header-small">Role</h5>
-		            <p>{{tasksFeedCtrl.selectedTask.role}}</p>
-		            <h5 class="header-small">Payment</h5>
-		            <p>{{tasksFeedCtrl.selectedTask.payment}} {{tasksFeedCtrl.selectedTask.currency}}</p>
-		            <hr />
+			            <h4 class="header"><span class="oi" data-glyph="key"></span> Keywords</h4>
+			            <h5 class="header-small">Main keywords</h5>
+			            <p>{{tasksFeedCtrl.selectedTask.keywords.main}}</p>
+			            <h5 class="header-small">Sub keywords</h5>
+			            <p>{{tasksFeedCtrl.selectedTask.keywords.sub}}</p>
+			            <hr />
 
-		            <h4 class="header"><span class="oi" data-glyph="key"></span> Keywords</h4>
-		            <h5 class="header-small">Main keywords</h5>
-		            <p>{{tasksFeedCtrl.selectedTask.keywords.main}}</p>
-		            <h5 class="header-small">Sub keywords</h5>
-		            <p>{{tasksFeedCtrl.selectedTask.keywords.sub}}</p>
-		            <hr />
+			            <h4 class="header"><span class="oi" data-glyph="dial"></span> Persona</h4>
+			            <p>{{tasksFeedCtrl.selectedTask.persona}}</p>
 
-		            <h4 class="header"><span class="oi" data-glyph="dial"></span> Persona</h4>
-		            <p>{{tasksFeedCtrl.selectedTask.persona}}</p>
-
-		            <a class="green" href="#"><span class="oi" data-glyph="external-link"></span> Page URL </a>
-		            <a class="green" href="#"><span class="oi" data-glyph="external-link"></span> Sample text </a>
-
+			            <a class="green" href="#"><span class="oi" data-glyph="external-link"></span> Page URL </a>
+			            <a class="green" href="#"><span class="oi" data-glyph="external-link"></span> Sample text </a>
+								</div>
+								<div ng-show="!tasksFeedCtrl.isVisible">
+									<button class="btn btn-rounded btn-back" ng-click="tasksFeedCtrl.toggleVisibility()"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</button>
+									<h4 class="header"><i class="fa fa-info-circle" aria-hidden="true"></i> Information</h4>
+								</div>
 		          </div>
 							<div class="circle gray"></div>
 						</div>
 						<div class="btn-submission">
-							<button class="btn btn-lg btn-rounded blue">Take the task!</button>
+							<button class="btn btn-lg btn-rounded bg-gray white" id="information" ng-disabled="!tasksFeedCtrl.isVisible"  ng-click="tasksFeedCtrl.toggleVisibility()" ng-class="{'disabled': !tasksFeedCtrl.isVisible}"><span>1</span> Information</button>
+							<button class="btn btn-lg btn-rounded blue" id="task-submission" ng-disabled="tasksFeedCtrl.isVisible" ng-class="{'disabled': tasksFeedCtrl.isVisible}"><span>2</span> Take the task!</button>
 						</div>
 					</div>
 
