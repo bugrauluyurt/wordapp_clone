@@ -140,7 +140,7 @@ angular.module('wordapp',['ui.bootstrap', 'ngAnimate'])
     tasksFeedCtrl.winHeight = $window.innerHeight - 200;
     tasksFeedCtrl.tasks = tasksFeed.tasks;
     tasksFeedCtrl.selectedId = 0;
-
+    tasksFeedCtrl.isVisible = true;
     tasksFeedCtrl.selectedTask = tasksFeedCtrl.tasks[0];
 
     tasksFeedCtrl.fetchTask = function() {
@@ -156,7 +156,6 @@ angular.module('wordapp',['ui.bootstrap', 'ngAnimate'])
       tasksFeedCtrl.isVisible = true;
     };
 
-    tasksFeedCtrl.isVisible = true;
     tasksFeedCtrl.toggleVisibility = function(){
       tasksFeedCtrl.isVisible = !tasksFeedCtrl.isVisible;
     };

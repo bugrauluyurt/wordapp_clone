@@ -27,6 +27,10 @@ body {
   font-weight: bold !important;
 }
 
+.container {
+  width:1200px!important;
+}
+
 button {
   background-color:transparent;
   border:none;
@@ -375,9 +379,9 @@ input.form-control:focus{
 
 .profile-pic {
   display:block;
-  border-radius:20px;
-  height:120px;
-  width:120px;
+  border-radius:50%;
+  height:130px;
+  width:130px;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -466,7 +470,6 @@ input.form-control:focus{
   border:1px solid #ededed;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  width:450px;
   padding:20px 30px 30px 30px;
   overflow-y:scroll;
 }

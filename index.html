@@ -8,8 +8,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
   <link rel="stylesheet" href="assets/css/open-iconic.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
 	<link rel="stylesheet" href="assets/css/wordapp.css">
 </head>
 <body ng-cloak ng-app="wordapp" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
@@ -103,7 +103,7 @@
 
         <div class="col-md-5 animated fadeInRight">
 
-					<div class="fixed" ng-style="{'height': tasksFeedCtrl.winHeight + 'px'}">
+					<div ng-style="{'height': tasksFeedCtrl.winHeight + 'px'}">
 
 
 						<div class="task-card-detail" id="taskDetails" >
@@ -136,13 +136,13 @@
 								</div>
 								<div ng-show="!tasksFeedCtrl.isVisible">
 									<button class="btn btn-rounded btn-back" ng-click="tasksFeedCtrl.toggleVisibility()"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</button>
-									<h4 class="header"><i class="fa fa-info-circle" aria-hidden="true"></i> Information</h4>
+									<h4 class="header"><i class="fa fa-info-circle" aria-hidden="true"></i> Preview</h4>
 								</div>
 		          </div>
 							<div class="circle gray"></div>
 						</div>
 						<div class="btn-submission">
-							<button class="btn btn-lg btn-rounded bg-gray white" id="information" ng-disabled="!tasksFeedCtrl.isVisible"  ng-click="tasksFeedCtrl.toggleVisibility()" ng-class="{'disabled': !tasksFeedCtrl.isVisible}"><span>1</span> Information</button>
+							<button class="btn btn-lg btn-rounded bg-gray white" id="information" ng-disabled="!tasksFeedCtrl.isVisible"  ng-click="tasksFeedCtrl.toggleVisibility()" ng-class="{'disabled': !tasksFeedCtrl.isVisible}"><span>1</span> Preview</button>
 							<button class="btn btn-lg btn-rounded blue" id="task-submission" ng-disabled="tasksFeedCtrl.isVisible" ng-class="{'disabled': tasksFeedCtrl.isVisible}"><span>2</span> Take the task!</button>
 						</div>
 					</div>
